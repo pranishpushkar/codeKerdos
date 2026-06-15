@@ -22,6 +22,9 @@ public class RemoveXFromString {
 
     }
 
+
+    // Time Complexity O(n) and Space Complexity O(n) because we are not creating new string using substring method. 
+    // We are just passing the index to the next recursive call.
     public static String removeXBetter(String str){
 
         return helper(str,0);
