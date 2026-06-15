@@ -16,7 +16,7 @@ public class NFirstOccurrence {
 
         if(arr[i]==n){
             return i;
-        }else if(i==0 && arr[i]!=n){
+        }else if(i==arr.length-1 && arr[i]!=n){
             return -1;
         }else{
             return helper(arr,n,i+1);
