@@ -4,6 +4,11 @@ public class SubsetsOfArray {
 
     public static int[][] getAllSubsets (int[] arr){
 
+        // Edge case for empty array.
+        if (arr.length == 0) {
+            return new int[][] { {} };
+        }
+
         return helper(arr,0,arr.length-1);
 
     }
