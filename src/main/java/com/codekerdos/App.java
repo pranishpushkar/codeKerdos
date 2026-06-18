@@ -2,12 +2,7 @@ package com.codekerdos;
 
 import java.util.List;
 
-import com.codekerdos.recursion.Fibonacci;
-import com.codekerdos.recursion.NInArrayRecursive;
-import com.codekerdos.recursion.RemoveXFromString;
-import com.codekerdos.recursion.PrintTillN;
-import com.codekerdos.recursion.SubsetsOfArray;
-import com.codekerdos.recursion.SubsetsArrayBacktracking;
+import com.codekerdos.recursion.*;
 
 /**
  * Hello world!
@@ -22,12 +17,12 @@ public class App {
         // System.out.println( RemoveXFromString.removeXBetter("xaxbxcdef") );
         // PrintTillN.printTillN(5);
 
-        int[] arr = { 1, 2, 3, 4 };
+        String digits = "923";
 
-        List<List<Integer>> subsets = SubsetsArrayBacktracking.getSubsetsInOrder(arr);
+        String[] temp = PhoneNumber.letterCombinations(digits);
 
-        for (List<Integer> subset : subsets) {
-            System.out.println(subset);
+        for(String str : temp){
+            System.out.println(str);
         }
 
     }
