@@ -17,12 +17,11 @@ public class App {
         // System.out.println( RemoveXFromString.removeXBetter("xaxbxcdef") );
         // PrintTillN.printTillN(5);
 
-        String digits = "923";
+        String str = "abc";
+        List<String> list = StringPermutation.getAllPermutations(str);
 
-        String[] temp = PhoneNumber.letterCombinations(digits);
-
-        for(String str : temp){
-            System.out.println(str);
+        for(String s : list){
+            System.out.println(s);
         }
 
     }
