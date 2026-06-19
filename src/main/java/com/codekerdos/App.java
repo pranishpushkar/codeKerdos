@@ -17,12 +17,7 @@ public class App {
         // System.out.println( RemoveXFromString.removeXBetter("xaxbxcdef") );
         // PrintTillN.printTillN(5);
 
-        String str = "abc";
-        List<String> list = StringPermutation.getAllPermutations(str);
-
-        for(String s : list){
-            System.out.println(s);
-        }
+        System.out.println(MyPower.myPow(2,20));
 
     }
 }
