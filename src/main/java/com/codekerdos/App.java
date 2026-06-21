@@ -17,7 +17,14 @@ public class App {
         // System.out.println( RemoveXFromString.removeXBetter("xaxbxcdef") );
         // PrintTillN.printTillN(5);
 
-        System.out.println(MyPower.myPow(2,20));
+        //System.out.println(MyPower.myPow(2,20));
+
+        int[] arr = {7,2,5,2,5,6,7};
+        int[] ans = MergeSortArrays.mergeSort(arr);
+
+        for(int i : ans){
+            System.out.println(i);
+        }
 
     }
 }

@@ -7,32 +7,34 @@ public class StringPermutation {
     private static List<String> ans = new ArrayList<>();
 
     public static List<String> getAllPermutations(String str){
+        String p= "";
         if(str.length()==0){
 
             return ans;
 
         }
 
-        return helper(str, 0, str.length()-1);
+        helper(str, p, 0, str.length()-1);
+
+        return ans;
 
     }
     
 
-    private static List<String> helper(String str, int left, int right){
+    private static void helper(String str, String p, int left, int right){
 
-        if(str.length()==0){
-            return ans;
+        if(left>right){
+            return;
         }
 
-        String myAnswer =  String.valueOf(str.charAt(0));
-        List<String> recursionAnswer = helper(str.substring(1),left+1,right);
-
-        for(String s : recursionAnswer){
-            ans.add(myAnswer + s);
+        if(left==right){
+            ans.add(p+str.charAt(left));
         }
 
+        p +=  String.valueOf(str.charAt(left));
+        helper(str,p,left+1,right);
 
-        return ans;
+        
 
     }
 
