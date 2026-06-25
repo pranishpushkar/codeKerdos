@@ -1,0 +1,161 @@
+Problem Statement: Design a Movie Ticket Booking System
+Overview:
+Design the core classes, interfaces, and low-level architecture for a movie ticket booking system (similar to BookMyShow or Fandango). The system should allow users to browse movies, select a cinema, choose a showtime, and book specific seats.
+Core Requirements:
+Cities, Cinemas, & Screens: The system should support multiple cities. Each city has multiple cinemas, and each cinema has multiple screens (halls).
+Movies & Shows: A cinema can run multiple shows for different movies simultaneously. A movie has standard attributes (title, language, genre, duration). A show is a specific screening of a movie at a specific time on a specific screen.
+Seat Selection & Pricing: Screens have a specific layout of seats. Seats can be of different categories (e.g., Standard, Premium, VIP), and pricing should dynamically reflect the seat category.
+Booking Process: Users should be able to select available seats for a show and initiate a booking.
+Concurrency Handling (Crucial): The system must handle high concurrency. Two users cannot book the same seat for the same show simultaneously. When a user selects a seat and proceeds to payment, the seat must be temporarily locked (e.g., for 10 minutes). If the payment fails or times out, the seat must become available again.
+
+Out of Scope (Do not implement):
+User authentication and profile management.
+Actual payment gateway integration (assume a mock PaymentService exists).
+Recommendation engines or notification systems.
+
+Assumptions:
+
+Payment Processing
+
+Classes:
+
+Movie:
+title, language, genre, duration.
+
+Show:
+Movie, startTime, endTime, Screen
+
+Ticket/Booking: 
+bookingId, userId, bookingTime, List<Seat> bookedSeats, Show, ENUM bookingStatus, paidAmount
+
+Cinema
+Id
+Name
+List<Show>
+List<Screen>
+City
+
+Screen
+Id
+Name
+Cinema
+List<Seat>
+
+Seat
+rowNumber, seatNumber, SeatType
+
+SeatType : ENUM
+Standard, Premium, VIP
+
+ShowSeat
+id, Seat, show, price, status (price startegy : to be explored)
+
+SeatStatus: ENUM
+Available, Locked, Booked
+
+interfaces
+
+SeatLockProvider:
+boolean lockSeats(List<ShowSeat> seat, id userId, Show show);
+boolean unlockSeats(List<ShowSeat> seats, Show show, id userId);
+boolean isValidLock(List<ShowSeat>, Show show, id userId);
+
+Booking Service:
+ShowSeat repo;
+Booking repo;
+
+SeatLockProvider:
+
+Payment Service:
+
+
+Code Flow:
+
+INITIATE BOOKING
+> List<ShowSeat>, userId, Show.
+> are seats available.
+> if yes, acquire a lock, if no, throw exception.
+> create booking entity enrich is with details e.g- id, show, booked seats, status, amount (business logic to be implemented).
+> make booking call.
+
+CONFIRM Booking triggered via callback.
+> validate lock.
+> if yes, then validate payment status. if yes, update status to Booked. 
+> If no, then release lock and update booking status to failed and mark seats as available.
+
+
+==========================================================================================================
+
+Problem to solve:
+
+Reserving seats(limited) under high concurrency.
+
+Entities:
+
+1. City
+>> id
+>> Name
+
+2. Cinema
+>> id
+>> Name
+
+3. Movie
+>> id
+>> Name
+
+4. Screen
+>> id
+>> screenNumber
+>> cinemaId
+
+5. Show
+>> id
+>> startTime
+>> durationInMinutes
+>> movieId
+>> screenId
+
+6. Seat
+>> id
+>> rowNumber
+>> seatNumber
+>> screenId
+>> seatType
+
+7. Booking
+>> id
+>> status
+>> userId
+>> amount
+>> showId
+>> ShowSeat
+
+8. Payment
+>> id
+>> bookingId
+>> status
+
+// represents seats for a show as seats are a physical entity and belong to a screen 
+// but their availability depends on shows.
+
+9. ShowSeat
+>> id
+>> seatId
+>> showId
+>> screenId
+>> status
+>> lockStartTime
+
+10. User
+>> id
+>> Name
+>> email
+>> phone
+>> age
+
+enum SeatType{
+    Standard,
+    Premium,
+    VIP
+}

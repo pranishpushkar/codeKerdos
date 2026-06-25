@@ -19,11 +19,17 @@ public class App {
 
         //System.out.println(MyPower.myPow(2,20));
 
-        int[] arr = {7,2,5,2,5,6,7};
-        int[] ans = MergeSortArrays.mergeSort(arr);
+        // int[] arr = {7,2,5,2,5,6,7};
+        // int[] ans = MergeSortArrays.mergeSort(arr);
 
-        for(int i : ans){
-            System.out.println(i);
+        // for(int i : ans){
+        //     System.out.println(i);
+        // }
+
+        int[] arr = {-100,0,1,12,34};
+        QuickSort.sort(arr,0,arr.length-1);
+        for(int i=0;i<arr.length;i++){
+            System.out.println(arr[i]);
         }
 
     }
