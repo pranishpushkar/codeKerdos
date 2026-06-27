@@ -28,7 +28,7 @@ public class PhoneNumber {
 
     private static String[] helper(Map<Integer,String> map, String digits, int left, int right){
 
-        if(left>right){
+        if(left>=right){
             return new String[]{""};
         }
 

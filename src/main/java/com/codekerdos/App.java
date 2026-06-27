@@ -26,10 +26,14 @@ public class App {
         //     System.out.println(i);
         // }
 
-        int[] arr = {-100,0,1,12,34};
-        QuickSort.sort(arr,0,arr.length-1);
-        for(int i=0;i<arr.length;i++){
-            System.out.println(arr[i]);
+        // int[] arr = {-100,0,1,12,34};
+        // QuickSort.sort(arr,0,arr.length-1);
+        // for(int i=0;i<arr.length;i++){
+        //     System.out.println(arr[i]);
+        // }
+
+        for(String str : StringPermutation.getAllPermutations("abc")){
+            System.out.println(str);
         }
 
     }

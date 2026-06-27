@@ -4,38 +4,28 @@ import java.util.*;
 
 public class StringPermutation {
 
-    private static List<String> ans = new ArrayList<>();
-
     public static List<String> getAllPermutations(String str){
-        String p= "";
-        if(str.length()==0){
-
-            return ans;
-
-        }
-
-        helper(str, p, 0, str.length()-1);
-
+    
+        String p = "";
+        String up = str;
+        List<String> ans = new ArrayList<>();
+        helper(ans, p, up);
         return ans;
-
     }
     
 
-    private static void helper(String str, String p, int left, int right){
+    private static void helper(List<String> ans, String p, String up){
 
-        if(left>right){
+        if(up.length()==0){
+            ans.add(p);
             return;
         }
 
-        if(left==right){
-            ans.add(p+str.charAt(left));
+        for (int i = 0; i < up.length(); i++) {
+            char temp = up.charAt(i);
+            String remaining = up.substring(0, i) + up.substring(i + 1);
+            helper(ans, p + temp, remaining);
         }
-
-        p +=  String.valueOf(str.charAt(left));
-        helper(str,p,left+1,right);
-
-        
-
     }
 
 }
