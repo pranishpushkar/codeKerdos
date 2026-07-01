@@ -1,6 +1,6 @@
 package com.codekerdos;
 
-import java.util.List;
+import java.util.*;
 
 import com.codekerdos.recursion.*;
 
