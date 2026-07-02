@@ -1,0 +1,13 @@
+Designing the Low-Level Design (LLD) for an Amazon-style shopping cart requires handling state management, complex pricing logic, and concurrency.
+
+Functional Requirements:
+Add/Remove: Users can add products to the cart or remove them.
+Update Quantity: Users can increase or decrease the quantity of a specific item.
+Calculate Total: The system must calculate the total price, including taxes, shipping, and discounts.
+Guest vs. Logged-in: The cart must work for guest users and seamlessly merge with their account cart when they log in.
+Save for Later: Users can move items out of the active cart to purchase later.
+Non-Functional Requirements:
+Highly Available: The cart is on the critical path to purchase; it cannot go down.
+Low Latency: Adding an item to the cart must feel instantaneous.
+Concurrency: Handling scenarios where a user updates the cart from multiple devices simultaneously.
+
