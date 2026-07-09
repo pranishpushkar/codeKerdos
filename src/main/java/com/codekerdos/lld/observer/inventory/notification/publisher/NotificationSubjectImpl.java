@@ -36,7 +36,7 @@ public class NotificationSubjectImpl implements NotificationSubject {
             notifyObserver();
         }
         else{
-            System.out.println("Inventory too low to send out notifications. Current count: "+count);
+            System.out.println("Inventory too low to send out notifications. Current count: "+this.iPhoneEighteeCount);
         }
     }
 
