@@ -1,7 +1,7 @@
 package com.codekerdos.lld.scheduler.scheduler;
 
-import scheduler.model.ScheduledJob;
-import scheduler.queue.JobQueue;
+import com.codekerdos.lld.scheduler.model.ScheduledJob;
+import com.codekerdos.lld.scheduler.queue.JobQueue;
 
 public class JobHandle {
 

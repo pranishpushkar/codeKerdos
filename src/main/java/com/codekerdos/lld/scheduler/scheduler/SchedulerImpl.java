@@ -1,11 +1,9 @@
 package com.codekerdos.lld.scheduler.scheduler;
 
-package scheduler.scheduler;
-
-import scheduler.model.JobType;
-import scheduler.model.ScheduledJob;
-import scheduler.queue.JobQueue;
-import scheduler.worker.Worker;
+import com.codekerdos.lld.scheduler.model.JobType;
+import com.codekerdos.lld.scheduler.model.ScheduledJob;
+import com.codekerdos.lld.scheduler.queue.JobQueue;
+import com.codekerdos.lld.scheduler.worker.Worker;
 
 import java.util.concurrent.TimeUnit;
 

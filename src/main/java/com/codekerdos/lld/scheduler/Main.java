@@ -1,9 +1,9 @@
 package com.codekerdos.lld.scheduler;
 
-import scheduler.scheduler.JobHandle;
-import scheduler.scheduler.Scheduler;
-import scheduler.scheduler.SchedulerConfig;
-import scheduler.scheduler.SchedulerImpl;
+import com.codekerdos.lld.scheduler.scheduler.JobHandle;
+import com.codekerdos.lld.scheduler.scheduler.Scheduler;
+import com.codekerdos.lld.scheduler.scheduler.SchedulerConfig;
+import com.codekerdos.lld.scheduler.scheduler.SchedulerImpl;
 
 import java.time.LocalTime;
 import java.util.concurrent.TimeUnit;

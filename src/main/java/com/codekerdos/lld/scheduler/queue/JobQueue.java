@@ -1,7 +1,7 @@
 package com.codekerdos.lld.scheduler.queue;
 
-import scheduler.model.JobStatus;
-import scheduler.model.ScheduledJob;
+import com.codekerdos.lld.scheduler.model.JobStatus;
+import com.codekerdos.lld.scheduler.model.ScheduledJob;
 
 import java.util.PriorityQueue;
 import java.util.concurrent.locks.Condition;
