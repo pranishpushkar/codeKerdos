@@ -1,13 +1,8 @@
 package com.codekerdos;
 
 import java.util.*;
-
 import com.codekerdos.recursion.*;
 
-/**
- * Hello world!
- *
- */
 public class App {
     public static void main(String[] args) {
         // System.out.println( Fibonacci.fib(30) );
