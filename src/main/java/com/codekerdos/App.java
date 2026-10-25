@@ -1,6 +1,8 @@
 package com.codekerdos;
 
 import java.util.*;
+
+import com.codekerdos.graph.Bridge;
 import com.codekerdos.recursion.*;
 
 public class App {
@@ -27,9 +29,14 @@ public class App {
         //     System.out.println(arr[i]);
         // }
 
-        for(String str : StringPermutation.getAllPermutations("abc")){
-            System.out.println(str);
-        }
+        // for(String str : StringPermutation.getAllPermutations("abc")){
+        //     System.out.println(str);
+        // }
+
+        Bridge b = new Bridge();
+        List<List<Integer>> edges = List.of(
+        List.of(0, 1), List.of(1, 2), List.of(2, 0), List.of(1, 3));
+        System.out.println(b.criticalConnections(4, edges));
 
     }
 }
